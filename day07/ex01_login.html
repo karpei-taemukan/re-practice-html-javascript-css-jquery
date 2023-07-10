@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/442b712813.js" crossorigin="anonymous"></script>
+<style>
+#formWrap{
+border: 1px solid black;
+width: 500px;
+margin: 100px auto;
+padding: 10px;
+border-radius: 20px;
+}
+input[type='text']{
+border:none;
+outline: none;
+width: 100%;
+height: 30px;
+box-sizing: border-box;
+}
+.formInput{
+    display: flex;
+    align-items: center;
+    border: 2px solid white;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.inputFocus{
+    border-color: pink;
+}
+
+input[type='submit']{
+border:none;
+outline: none;
+width: 100%;
+height: 30px;
+box-sizing: border-box;
+}
+
+input[type='submit']:hover{
+background-color:darkgrey;
+color:orange;
+cursor: pointer;
+}
+
+.inputError{
+    border-color: mediumvioletred;
+}
+.checkMsg{
+    margin-top: 5px;
+    margin-bottom: 15px;
+    color:red;
+}
+.formIcon{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+}
+</style>
+
+</head>
+
+<body style="background-color:darkgreen">
+    <div id="formWrap">
+        <form action="login" method="get" onsubmit="return loginFormCheck(this)">
+            <div class="formInput">
+                <!-- <input type="text" onfocus="focusInput(this)" onblur="blurInput(this)" placeholder="ID"/> -->
+               <span class="formIcon">
+                   <i class="fa-solid fa-user"></i>
+               </span>
+                <input type="text" name="loginId" class="userInput" placeholder="ID"/>
+            </div>
+            <p class="checkMsg" id="idCheck"></p>
+            <div class="formInput">
+                <!-- <input type="text" onfocus="focusInput(this)" onblur="blurInput(this)" placeholder="PASSWORD"/> -->
+                <span class="formIcon">
+                    <i class="fa-solid fa-key"></i>
+                </span>
+                <input type="text" name="loginPw" class="userInput" placeholder="PASSWORD"/>
+            </div>
+            <p class="checkMsg" id="pwCheck"></p>
+            <div>
+                <input type="submit" value="login"/>
+            </div>
+        </form>
+    </div>
+
+    <hr>
+
+    <div id="mainContents">
+        <div class="divSub">
+            sub1
+        </div>
+        <div class="divSub">
+            sub2
+        </div>
+        <div class="divSub">
+            sub3
+        </div>
+    </div>
+</body>
+<script>
+    let mainDivEl = document.querySelector("#mainContents");
+    console.log(mainDivEl);
+    let subDivEl = document.querySelector(".divSub");
+    console.log(subDivEl);
+    // querySelector는 최초의 하나만 가져온다
+    let subDivEls = document.querySelectorAll(".divSub");
+    console.log(subDivEl);
+    console.log(subDivEls);
+    
+    for(let i=0; i<subDivEls.length; i++){
+        console.log(subDivEls[i]);
+    }
+//====================================================================
+
+
+let childEls= mainDivEl.children;
+console.log(childEls);
+
+for(let i =0; i<childEls.length; i++){
+    console.log(childEls[i]);
+}
+
+const firstChildEl = mainDivEl.firstElementChild;
+const lastChildEl = mainDivEl.lastChild;
+
+console.log(firstChildEl,lastChildEl);
+
+    </script>
+<script>
+    function focusInput(obj){
+      obj.parentElement.classList.add("inputFocus");
+
+    }
+    function blurInput(obj){
+      obj.parentElement.classList.remove("inputFocus");
+    }
+
+
+    let inputTagElements=document.getElementsByClassName("userInput");
+
+    for(let inputEl of inputTagElements){
+      //  console.log(inputEl);
+        inputEl.addEventListener("focus", 
+        function(){
+            inputEl.parentElement.classList.remove("inputError");
+            inputEl.parentElement.classList.add("inputFocus");
+        })
+
+        inputEl.addEventListener("blur", 
+        function(){
+            inputEl.parentElement.classList.remove("inputFocus");
+            // input 태그에 입력된 value가 없으면 .inputError 추가
+        
+             if(inputEl.value == ""){
+                inputEl.parentElement.classList.add("inputError");
+                if(inputEl.parentElement.nextElementSibling.id == "idCheck"){
+                    inputEl.parentElement.nextElementSibling.innerText="enter ID";
+                }
+                else  if(inputEl.parentElement.nextElementSibling.id == "pwCheck"){
+                    inputEl.parentElement.nextElementSibling.innerText="enter PW";
+                }
+            }
+            else{
+                inputEl.parentElement.classList.remove("inputError")
+                inputEl.parentElement.nextElementSibling.innerText="";
+
+            }
+        })
+
+    }
+
+    function loginFormCheck(formObj){
+       // console.log(formObj);
+
+        let idEl = formObj.loginId; // 아이디 input 태그
+        let pwEl = formObj.loginPw; // 비밀번호 input 태그
+
+
+        if(idEl.value == ""){
+            alert("Enter the ID");
+            idEl.focus();
+            return false;
+        }
+
+        if(pwEl.value == ""){
+            alert("Enter the PW");
+            pwEl.focus();
+            return false;
+        }
+
+      /*  for(let inputEl of inputTagElements){
+        if(inputEl.value == ""){
+            console.log(inputEl.value);
+            alert("Enter the Account");
+            return false;
+        }
+        }*/
+    }
+
+
+</script>
+
+</html>

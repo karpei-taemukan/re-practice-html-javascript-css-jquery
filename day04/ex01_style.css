@@ -1,0 +1,26 @@
+body{
+    background-color:darkslategrey;
+}
+
+#div01{
+    background-color: antiquewhite;
+    height: 50px;
+    width: 1fr;
+}
+#div02{
+    min-height: 50px;
+    max-height: 100px;
+    background-color:blue;
+}
+.sp{
+    display: inline-block;
+    background-color: beige;
+    width: 100px;
+    height: 100px;
+}
+#colorRed{
+    color:red;
+}
+#h2{
+    border: 1px solid black;
+}

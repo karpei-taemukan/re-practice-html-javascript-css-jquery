@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+
+
+<body style="background-color: green;">
+    <h1 id="output">title</h1>
+    <div id="id01">
+    </div>
+    <div id="id02"></div>
+    <div id="id03"></div>
+    <h1></h1>
+    <input type="text" id="input01" oninput="func01(this.value)"/>
+</body>
+
+
+
+<script>
+    let num=document.getElementById("id01").innerText;
+    if(Number(num) > 5){
+        console.log("true"+num);
+        document.getElementById("output").innerText="true "+num;
+    }
+    else{
+        console.log("false"+num);
+        document.getElementById("output").innerHTML= "<a href=''>false"+ num+"</a>";
+      //  document.getElementById("output").innerText= "<a href=''>false"+ num+"</a>";
+        
+    }
+
+
+    let caseval="A";
+
+    switch(caseval){
+        case "A":
+            console.log("A")
+            break;
+        case true:
+            console.log(true)
+            break;    
+    }
+
+    let arr = [];
+    for(let i=0; i< 10; i++){
+    arr.push(i);
+    if(arr.length == 10){
+        console.log(arr);
+       for(let i=0; i<10; i++){
+        let par = document.getElementById("id01"); 
+        let ch = document.createElement("p");
+
+        ch.innerText=arr[i];
+        console.log(ch);
+     
+        setTimeout(()=> { par.appendChild(ch);
+        },1000);
+       
+       }
+    }
+    }
+    
+    for (let i = 1; i <= 5; i++) {
+       setTimeout(function() {
+ document.getElementById("id02").innerHTML = "<h1>" + i + "</h1>";
+  }, i * 1000);
+}
+
+let i = 1;
+let interval = setInterval(function() {
+    document.getElementById("id03").innerHTML += "<h1>" + i + "</h1>";
+  i++;
+  if (i > 3) {
+    clearInterval(interval);
+  }
+}, 1000);
+
+    let whileval=5;
+
+    while(whileval > 0){
+        console.log(whileval);
+        whileval--;
+    }
+
+
+    function func01(){
+        let ival1=document.getElementById("input01");
+
+        console.log(ival1.value)
+        let reval = document.getElementById("result");
+        if(Number(ival1.value) > 10){
+            reval.innerText="10 up";
+        }
+        else{
+            reval.innerText="10 down";
+        }
+    }
+
+
+</script>
+</html>

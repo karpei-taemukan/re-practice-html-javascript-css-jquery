@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: green">
+<button onclick="location.href='ex07_historyTest.html'">move page</button>
+
+</body>
+<script>
+let search = location.search;
+console.log(search);
+let changeSearch = search.replace("?","").split("&");
+console.log(changeSearch);
+let mid = changeSearch[0];
+let mpw = changeSearch[1];
+console.log(mid, mpw);
+let midSplit = mid.split("=");
+console.log(midSplit);
+let mpwSplit = mpw.split("=");
+console.log(mpwSplit);
+let midSplitValue = midSplit[1];
+let mpwSplitValue = mpwSplit[1];
+console.log(midSplitValue,mpwSplitValue);
+
+if(midSplitValue == "abcd" || mpwSplitValue=="1234"){
+    history.back()
+}
+</script>
+</html>

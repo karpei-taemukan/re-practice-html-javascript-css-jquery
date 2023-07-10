@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<style>
+    .bgColor{
+        background-color: cadetblue;
+    }
+</style>
+</head>
+<body style="background-color: green;">
+    <div>
+        <h1>Title</h1>
+        <input type="text" value="input01" />
+    </div>
+    <p>1</p>
+    
+    <div>
+        <input type="text" value="input02" />
+    </div>
+    <p>2</p>
+    <div>
+        <input type="text" value="input03" />
+    </div>
+    <p>3</p>
+</body>
+<script>
+//$("input").on("focus",(e)=>{$(e.target).parent().addClass("bgColor")})
+//$("input").on("blur",(e)=>{$(e.target).parent().removeClass("bgColor")})
+$("input").on({
+    "focus": (e)=>{
+    $(e.target).parent().addClass("bgColor"),
+   $(e.target).parent().next().addClass("bgColor"),
+    $(e.target).parent().prev().addClass("bgColor")
+},
+    "blur" :(e)=>{
+    $(e.target).parent().removeClass("bgColor"),
+  $(e.target).parent().next().removeClass("bgColor"),
+    $(e.target).parent().prev().removeClass("bgColor")
+}
+})
+</script>
+</html>

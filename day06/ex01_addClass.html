@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bgColor{
+            background-color: cornsilk;
+        }
+    </style>
+</head>
+<body style="background-color: green;">
+    <h2 onclick="changeColor(this)">title</h2>
+    <p onclick="changeColor(this)">click</p>
+    <hr>
+
+    <h2 onclick="addClass(this)">h2</h2>
+    <p onclick="addClass(this)">p</p>
+    <div onclick="addClass(this)">div</div> 
+<hr>
+<h3 onclick="toggleClass(this)">h3</h3>
+</body>
+<script>
+    function changeColor(clickObject){
+    console.log(clickObject);
+    clickObject.innerText="click";
+
+    let nowColor=clickObject.style.color;
+        console.log(nowColor);
+        if(nowColor == ""){
+            clickObject.style.color="red";
+   }
+   else{
+    clickObject.style.color="";
+   }
+}
+
+function addClass(obj){
+    console.log(obj.classList);
+    let objClassList = obj.classList;
+   /*
+    for(let i=0; i<objClassList.length; i++){
+        console.log(objClassList[i])
+    }
+    
+    if(obj.classList.length > 0){
+        obj.classList.remove("bgColor");
+    }
+    else{
+        obj.classList.add("bgColor");
+    }
+    */
+
+    let checkClass = objClassList.contains("bgColor");
+    console.log(checkClass);
+    if(checkClass){
+        obj.classList.remove("bgColor");
+    }
+    else{
+        obj.classList.add("bgColor");
+    }
+}
+
+function toggleClass(obj){
+        // toggle("클래스값") 해당 클래스가 있으면 제거 없으면 생성
+        obj.classList.toggle("bgColor");
+    }
+</script>
+</html>

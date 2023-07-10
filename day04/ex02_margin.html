@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 1px solid black;
+            width: 200px;
+            height: 100px;
+        }
+        /*#div01,#div02{  
+            margin: 20px;
+             영역 겹침 
+        }*/
+        #div01{
+            margin:50px;
+        }
+        #div02{
+            margin: 40px;
+        }
+        #div03{
+            margin: 20px 20px;
+            /* 오른쪽, 왼쪽 */
+        }
+        #div04{
+            margin: 30px 20px 40px; 
+            padding: 10px;
+            /* 반시계방향 */
+        }
+        p{
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body style="background-color: darkgreen; border: 2px solid red;">
+    <div id="div01"><p>div01</p></div>
+    <div id="div02"><p>div02</p></div>
+    <hr>
+    <div id="div03"><p>div03</p></div>
+    <div id="div04"><p>div04</p></div>
+    <hr>
+    <span id="div01"><p>span01</p></span>
+    <span id="div02"><p>span02</p></span>
+</body>
+</html>

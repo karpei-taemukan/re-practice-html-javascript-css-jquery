@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: green">
+    <button onclick="alertClick()">ALERT</button>
+    <button onclick="confirmClick()">CONFIRM</button>
+    <button onclick="promptClick()">PROMPT</button>
+    <button onclick="openClick()">OPEN</button>
+    <p id="msg">MESSAGE</p>
+</body>
+
+<script>
+function alertClick(){
+    alert("qwe");
+}
+function confirmClick(){
+    const result = confirm("qwe");
+    console.log(result); // 확인: true 취소: false
+}
+function promptClick(){
+    const result = prompt('1+1=?');
+    //입력값 받기
+    console.log(result);
+}
+function openClick(){
+//window.open("URL","새로운 창의 이름","옵션") // 새로운 창의 이름으로 여러 창을 구분
+let winName = 1
+window.open("ex01_child.html",winName,"width=1000, height=2000, left=10000, top=10000");
+winName++;
+}
+</script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+        <script>
+    $(document).ready(function(){
+
+ h4Text = $("h4").text();
+ 
+console.log("h4 TEXT: "+h4Text);
+    })  // == $(function(){
+    //    let h4Text2 =  $("h4").text();
+     //   console.log(h4Text2);
+
+    //})
+    </script>
+</head>
+
+<body>
+    <h2>H2</h2>
+    <p id="p01">P tag</p>
+    <h3>h3 tag !!</h3>
+    <hr>
+    <h4>h4 tag</h4>
+</body>
+<!-- jquery 소스가 먼저 존재해야한다 -->
+<script>
+//  $("CSS 선택자")
+$("h2").text("h2 Tag"); // setter 형식
+$("#p01")
+let h1lq  = $("h3").text(); // getter 형식
+
+
+let h4Text = $("h4").text();
+ 
+console.log("h4 TEXT: "+h4Text);
+
+</script>
+</html>

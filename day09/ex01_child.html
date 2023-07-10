@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: darkgreen;">
+    
+<h1>title</h1>
+<button onclick="sendMsg()">BUTTON</button>
+</body>
+
+<script>
+function sendMsg(){
+    let msg = prompt("input mesasge");
+    window.opener.document.getElementById("msg").innerText=msg;
+}
+</script>
+</html>

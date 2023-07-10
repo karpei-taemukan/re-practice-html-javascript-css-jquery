@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+<style>
+    *{
+    font-family: 'Monoton', cursive;
+
+}
+div{
+    border: 1px solid black;
+    margin: 10px;
+}
+
+#wrap{
+    width: 300px;
+    margin: 0 auto;
+}
+
+#header{
+    text-align: center;
+     padding: 20%;
+    /* height: 200px; */
+    /* line-height: 200px; */
+}
+#navigation{
+    padding:15px;
+}
+#navigation>ul{
+list-style-type:none;
+padding: 0;
+display: flex;
+justify-content: space-around;
+}
+#navigation>ul>li{
+padding: 10px;
+border: 1px solid black;
+text-align: center;
+}
+#navigation>ul>li:hover{
+    background-color:aqua;
+    transition: 1s;
+}
+#contents{
+display: flex;
+}
+#leftcontent{
+     width:50%;
+}
+#rightcontent{
+    width:50%;
+}
+#footer{
+font-weight: 100px;
+font-size: 10px;
+text-align: center;
+}
+</style>
+</head>
+<body style="background-color: burlywood;">
+   <div id="wrap">
+
+    <div id="header">
+        <p style="margin: 0;">main title</p>
+    </div>
+
+    <div id="navigation">
+        <p style="text-align: center; margin: 0;">menu - navigation</p>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+
+    <div id="content">
+        <p>content</p>
+    </div>
+<div id="contents">
+    <div id="leftcontent">
+        <p>content left range</p>
+    </div>
+
+    <div id="rightcontent">
+        <p>content right range</p>
+    </div>
+</div>
+
+
+    <div id="footer">
+        <p>footer range</p>
+    </div>    
+
+</div>
+</body>
+</html>

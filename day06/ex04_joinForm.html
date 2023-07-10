@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, td,th{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th,td{
+            padding: 10px;
+        }
+        #idCheckMsg{
+            margin: 0;
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body style="background-color: darkolivegreen;">
+    <form action="TESTURL" onsubmit="return joinFormCheck(this)">
+        <table>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <td>
+                    <input name="mid" id="inputMid" onkeyup="idLength(this)" type="text" placeholder="5~8 size"/>
+                    <button type="button" onclick="idCheck()">confirm duplicate</button>
+                    <p id="idCheckMsg"></p>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    PASSWORD
+                </th>
+                <td>
+                    <input name="mpw" type="text"/>
+                </td>
+            </tr>
+            
+            <tr>
+                <th>
+                    E-MAIL
+                </th>
+                <td>
+                    <input name="meamilId" type="text"/>@
+                    <input name="memailDomain" type="text" style="width: 100px;" id="inputDomain"/>
+                    <select onchange="domainSelect(this)" id="">
+                        <option value="">enter</option>
+                        <option value="naver.com">naver</option>
+                    </select>
+                </td>
+            </tr>
+            
+            <tr>
+                <td colspan="2"><input type="submit" value="sign in" /></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+<script>
+    let msgObj = document.getElementById("idCheckMsg");
+
+    let idLthCheck = false;
+    let idDupCheck = false;
+
+
+function idLength(inputObj){
+   // console.log(inputObj.value);
+    let idVal = inputObj.value;
+    idLthCheck = false;
+    idDupCheck = false;
+
+
+    if(idVal.length == 0){
+        msgObj.innerText="enter the ID";
+        msgObj.style.color="red";
+    }
+    else if(idVal.length < 5 || idVal.length > 8){
+        msgObj.innerText="ID is 5~8 size";
+        msgObj.style.color="red";
+    }
+    else {
+        msgObj.innerText="enable ID";
+        msgObj.style.color="green";
+        idLthCheck = true;
+       // formMidCheck=true; 중복체크 안됨
+    }
+
+}
+
+
+
+function idCheck(){
+    const mid = "abcde";
+    let inputmid = document.getElementById("inputMid").value;
+
+    if(inputmid.length < 5 || inputmid.length > 8){
+    msgObj.innerText="disnable ID";
+    msgObj.style.color="red"
+    return;
+    }
+
+    if(inputmid.length >= 5 || inputmid.length <= 8){
+        if(mid == inputmid){
+            msgObj.innerText="duplicated ID";
+            msgObj.style.color="red";
+        }
+        else{
+            msgObj.innerText="enable ID";
+           idDupCheck = true;
+            msgObj.style.color="green";
+        }
+    }
+
+}
+
+function domainSelect(selectValue){
+const inputDomain = document.querySelector("#inputDomain");
+//console.log(selectValue.value);
+
+inputDomain.value = selectValue.value;
+}
+
+function joinFormCheck(formObj){
+//console.log(formObj);
+//console.log(formObj.mid.value)
+//console.log(formObj.mpw.value);
+
+if(!idLthCheck || !idDupCheck){
+alert("check ID length or ID duplicate");
+formObj.mid.focus();
+return false;
+}
+
+if(formObj.mpw.value == ""){
+formObj.mpw.focus();
+return false;
+}
+
+if(formObj.memail.value == ""){
+formObj.memail.focus();
+return false;
+}
+if(formObj.memailId.value == ""){
+formObj.memailId.focus();
+return false;
+}
+
+return false;
+}
+</script>
+</html>

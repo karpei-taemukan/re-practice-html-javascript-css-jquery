@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: rgb(26, 184, 92);">
+
+    <!-- action: 데이터를 전송힐 주소 
+        method: "get" 또는 "post"
+    -->
+
+    <form action="https://www.naver.com/" method="get">
+        <label for="inputId">ID</label>
+        <input required type="text" name="mid" id="inputId" style="background-color: aqua;"/>
+        
+        <label for="inputPw">PASSWORD</label>
+        <input required type="text" name="mpw" id="inputPw" style="background-color: aqua;"/>
+        
+        <label for="inputEmail">EMAIL</label>
+        <input type="email" name="memail" id="inputEmail" />
+
+        <input type="submit"  value="SUBMIT" style="border: none; background-color: brown; border-radius: 10px;"/>
+        
+        <ul>
+            <!-- 같은 name을 갖는 그룹에서 1개만 선택가능 -->
+            <li><input id="s" type="radio" name="loc" value="seoul" /><label for="s">seoul</label></li>
+            <li><input id="i" type="radio" name="loc" value="incheon" /><label for="i">incheon</label></li>
+            <li><input id="g" type="radio" name="loc" value="gyeong-gi"/><label for="g">gyeong-gi</label></li>
+          </ul>
+          <!-- ex) String loc = "incheon" -->
+        <br>
+        <br>
+        <br>
+          
+        <label>
+        <input type="checkbox" name="subject" value="java" /> java
+    </label>
+    <label>
+        <input type="checkbox" name="subject" value="c" /> c
+        </label>
+        <label>
+        <input type="checkbox" name="subject" value="python" /> python
+    </label>
+    </form>
+
+</body>
+</html>

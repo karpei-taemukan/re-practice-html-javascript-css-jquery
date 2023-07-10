@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .d-none{
+        display: none;
+    }
+    .clickMenu{
+        background-color: black;
+        color: white;
+    }
+    </style>
+
+</head>
+<body style="background-color:darkgreen">
+    <button id="btn01" onclick="menuClick(this, 'id01')" class="menuBtn clickMenu">1</button>
+    <button id="btn02" onclick="menuClick(this, 'id02')" class="menuBtn">2</button>
+    <button id="btn03" onclick="menuClick(this, 'id03')" class="menuBtn">3</button>
+    <button id="btn04" onclick="menuClick(this, 'id04')" class="menuBtn">4</button>
+   
+    <!-- button을 호출할 class 이름 하나, button을 toggle할 class 이름 하나 -->
+    <hr>
+<div id="id01" class="contentDiv">content1</div>
+<div id="id02" class="contentDiv d-none">content2</div>
+<div id="id03" class="contentDiv d-none">content3</div>
+<div id="id04" class="contentDiv d-none">content4</div>
+
+<!-- div를 호출할 class 이름 하나 div를 toggle할 class 이름 하나 -->
+
+</body>
+
+<script>
+
+
+function menuClick(menuObj, idObj){
+    //   console.log(menuObj, idObj);
+    //  console.log(typeof(menuObj));
+    //  console.log(typeof(idObj))
+
+//----------------------------------------------------------------------
+    
+let btnList = document.getElementsByClassName("menuBtn");
+
+    //console.log(btnList.length);
+    //console.log(btnList);
+   // console.log(typeof(btnList))
+
+    //----------------------------------------------------------------------
+
+ let divList = document.getElementsByClassName("contentDiv");
+   // console.log(divList)
+
+   //----------------------------------------------------------------------
+
+
+
+/*for(let i=0; i<btnList.length; i++){
+    console.log(btnList[i]);
+}
+
+
+*/
+
+   //----------------------------------------------------------------------
+
+
+for(let btnObj of btnList){    
+// for(..of..) 를 사용한 이유는 button의 clickMenu를 전체 삭제하기 위함
+ console.log(typeof(btnObj));
+ console.dir(btnObj);
+ console.log(btnObj);
+ btnObj.classList.remove("clickMenu");
+}
+
+
+
+for(let divObj of divList){
+    // for(..of..) 를 사용한 이유는 div의 d-none을 전체 추가하기 위함
+
+    // console.dir(divObj);
+    //console.log(typeof(divObj));
+   //console.log(divObj);
+    divObj.classList.add("d-none");
+
+}
+let d = document.getElementById(idObj);
+console.log(d)
+
+menuObj.classList.add("clickMenu");
+//클릭된 button의 clickMenu만 추가
+
+d.classList.remove("d-none");
+//클릭된 div의  d-none만 삭제
+}
+</script>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+    /* 
+    1. 선택자(태그 선택자, id 선택자: 유일한 스타일, class 선택자: 공통 스타일)
+    2. 속성: 값;
+    */
+    ul{
+        list-style-type:square;
+    }
+    li{
+        display: inline-block; 
+        border: 1px solid red;
+        /* inline 를 쓰면서  block의 속성을 쓴다 */
+        /*
+        display: inline;
+        display: block;
+        display: none;
+        */
+    
+        width: 200px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+   
+    }
+    
+    a{
+            font-size: 20px;
+        }
+        #span01{
+            color: aliceblue;
+        }
+        #span02{
+            color: aqua;
+        }
+        #span03{
+            color: darkorchid;
+        }
+        .fontRed{
+            color: deeppink;
+        }
+        .font50{
+            font-size: 50px;
+        }
+        li:hover{
+            font-size: 100px;
+            border: 10px solid palevioletred;
+            transition: 1s;
+            cursor: pointer;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        li > a{ 
+            /* > 바로 밑에 있는 자식 태그만 선택가능 */
+            text-decoration: dashed;
+        }
+
+        ul a{
+            /* 부모의 자식 태그 */
+            text-decoration: none;
+        }
+</style>
+</head>
+<body style="background-color: gray;">
+    <!-- <ul> <ol> -->
+
+        <ul>
+            <li>1</li>
+            <li>2</li>
+        </ul>
+        <ol type="I" start="3">
+            <li>3</li>
+            <li>4</li>
+        </ol>
+
+        <hr>
+
+    <ul>
+        <li>
+            <span id="span01">
+                회원가입
+            </span>
+        </li>
+        <li>
+        <span id="span02">
+            로그인
+        </span>
+        </li>
+        <li>
+            <span id="span03">
+            상품
+            </span>
+        </li>
+    </ul>   
+    
+    <hr>
+
+    <ul>
+        <li>
+            <a href="" class="fontRed font50">
+                회원가입
+            </a>
+        </li>
+        <li>     
+         <a href="" class="fontRed">
+            로그인
+        </a>
+        </li>
+        <li>
+            <a href="" class="fontRed font50">
+            상품
+            </a>
+        </li>
+    </ul>
+    
+    <hr> 
+
+    <a href="">링크</a>    
+</body>
+</html>

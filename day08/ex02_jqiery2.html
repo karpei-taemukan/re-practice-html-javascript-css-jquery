@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<style>
+    div{
+        width: 200px;
+        height: 200px;
+        border: 1px solid black;
+    }
+</style>
+</head>
+<body style="background-color: darkolivegreen;">
+<div id="id01">
+    div01
+</div>
+
+<div id="id02">
+    div02
+</div>
+
+<img id="img01" src="../3.jpg" alt="" width="200px"/>
+</body>
+
+<script>
+
+//속성 선택 적용
+let imgsrc = $("#img01").attr("src");
+// get  -> 속성값 가져오기
+
+console.log("imgsrc: "+imgsrc);
+
+
+$("#img01").attr("src", "../day07/11.jpg");
+// set -> 속성값 설정하기 
+
+</script>
+
+<script>
+    //body영역의 문서 객체 준비
+    $(document).ready(function(){/*실행코드*/});
+    $(function(){});
+
+document.querySelector("#id01").style.backgroundColor = "red";
+//css style 적용
+//$("#id02").css("background-color","blue").css("color", "white");
+
+let bgColor = $("#id02").css("background-color");
+console.log("before bgColor: "+ bgColor);
+
+$("#id02").css({
+    "display" : "flex",
+    "align-items": "center",
+    "justify-content": "center",
+    "background-color": "blue",
+    "color": "white",
+    "border-radius": "50%"
+});
+
+
+bgColor = $("#id02").css("background-color");
+console.log("after bgColor: "+ bgColor);
+</script>
+
+</html>

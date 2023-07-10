@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color:darkseagreen;">
+    <form>
+
+        <input autofocus size="20px" type="text" name="mid" placeholder="enter the text"/>
+        <button>submit</button>
+        <input type="range" id="range"  />
+      </form>
+      <br>
+      <input type="date"/>
+      <br>
+      <input type="number" min="0" max="5" step="1" />
+      <br>
+      <ul>
+        <!-- 같은 name을 갖는 그룹에서 1개만 선택가능 -->
+        <li><input id="s" type="radio" name="loc" value="seoul"/>seoul</li>
+        <li><input id="i" type="radio" name="loc" value="incheon"/>incheon</li>
+        <li><input id="g" type="radio" name="loc" value="gyeong-gi"/>gyeong-gi</li>
+      </ul>
+      <!-- ex) String loc = "incheon" -->
+    <br>
+    <br>
+    <br>
+
+    <input type="checkbox" name="subject" value="java" /> java
+    <input type="checkbox" name="subject" value="c" /> c
+    <input type="checkbox" name="subject" value="python" /> python
+
+        <!-- 
+            ex(same name)): String[] subject = {"java","c","python"}
+            
+            ex(differ)): String j = "java"; String c = "c"; String p = "python";
+        -->
+
+        <br>
+        <br>
+        <br>
+        <input type="color"/>
+        <br>
+        <br>
+        <br>
+        
+
+    <input type="file" />
+    <br>
+    <br>
+    <br>
+    
+    <textarea name="" rows="4" cols="12"></textarea>
+    <br>
+    <br>
+    <br>
+    
+    
+    </body>
+
+<script>
+    const range = document.querySelector("#range");
+    function ranges(e){
+    console.log(e.target.value);
+    }
+    range.addEventListener("input",ranges);
+
+
+
+    const r1 = document.querySelector("#s");
+    function r1c(e){
+        console.log(e.target.name)
+        console.log(e.target.value)
+    }
+    r1.addEventListener("click",r1c);
+    const r2 = document.querySelector("#i");
+    function r2c(e){
+        console.log(e.target.name)
+        console.log(e.target.value)
+    }
+    r2.addEventListener("click",r2c);
+    const r3 = document.querySelector("#g");
+    function r3c(e){
+        console.log(e.target.name)
+        console.log(e.target.value)
+    }
+    r3.addEventListener("click",r3c);
+</script>
+</html>

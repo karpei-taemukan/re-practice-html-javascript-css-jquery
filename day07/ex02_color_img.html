@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content{
+            padding: 10px;
+            border: 1px solid black;
+        }
+       #colorBox, #imgBox{
+        width: 200px;
+        height: 200px;
+       }
+
+    </style>
+</head>
+<body style="background-color: darkolivegreen;">
+    <div class="content">
+        <input type="color" oninput="colorChange(this)"/>
+        <div id="colorBox">
+        </div>
+    </div>
+    
+    <hr>
+    
+    <div class="content">
+        <img src="11.jpg" id="img01" height="100%" alt=""/>
+        <button onclick="imgChange(0)">before</button> <button onclick="imgChange(1)">next</button>
+    </div>
+</body>
+<script>
+    function colorChange(inputObj){
+        console.log(inputObj.value);
+      //  document.body.style.background=inputObj.value;
+        
+        let boxObj1 = document.getElementById("colorBox");
+        let boxObj2 = inputObj.nextElementSibling;
+        boxObj2.style.backgroundColor = inputObj.value;
+}
+
+let idx=0;
+let imgList = ["11.jpg","22.jpg","33.jpg"];
+
+function imgChange(selVal){
+    let imgItem = imgList[idx];
+console.log(selVal);
+if(selVal){
+    idx+=1;
+    if(idx >= imgList.length){
+        idx=0;
+    }
+}
+    else{
+        idx-=1;
+        if(idx < 0){
+        idx=imgList.length-1;
+    }
+    }
+
+    document.getElementById("img01").setAttribute("src",imgItem);
+}
+</script>
+</html>

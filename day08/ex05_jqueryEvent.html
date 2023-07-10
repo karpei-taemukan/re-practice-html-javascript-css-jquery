@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<style>
+    div{
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+    }
+</style>
+</head>
+<body style="background-color: green;">
+    <h1>Title</h1>
+    <div></div>
+    <button id="btn01">BUTTON</button>
+    <div></div>
+    <div style="width: 100%; height: 100%;" id="div01">
+        <h1>{<span style="color:aquamarine;">h1</span>}</h1>
+        <h1>{<span style="color:aquamarine;">h1</span>}</h1>
+        <h1>{<span style="color:aquamarine;">h1</span>}</h1>
+    </div>
+
+
+</body>
+<script>
+    $("#btn01").click(function(e){
+        $(e.target).prev().css("background-color","brown");
+    });
+    $("#btn01").dblclick(function(e){
+        $(e.target).next().css("background-color","black");
+    });
+
+    $("span").click(function(e){
+        $(e.target).parent().css("border","3px solid hotpink");
+        $("div>h1").text("h1 selected");
+    });
+
+    $("#div01").click(function(e){
+        $(e.target).children().css("border","3px solid white");
+    });
+
+//  div h1 vs div>h1   
+// div h1은 
+// div>h1은 
+
+</script>
+</html>

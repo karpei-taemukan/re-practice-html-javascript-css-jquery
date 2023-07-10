@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    table,th,tr,td{
+       border: 1px solid black; 
+    }
+</style>
+</head>
+<body style="background-color: green;">
+   <h1>score calculator</h1> 
+
+   <table>
+    <tr>
+        <th>score calculator</th>
+    </tr>
+
+    <tr>
+        <th>input score</th>
+        <td><input type="text" id="inputScore"/></td>
+    </tr>
+
+    <tr>
+        <th>result</th>
+        <td id="result"></td>
+    </tr>
+
+    <tr>
+        <th>
+
+            <input type="button"  value="input" onclick="addScore()"/>
+            <input type="button"  value="output" onclick="printScore()"/>
+            <input type="button" value="total" onclick="totalScore()"/>
+            <input type="button" value="average" onclick="avgScore()"/>
+        </th>
+    </tr>
+   </table>
+
+</body>
+<script>
+   /* let myProfile=[];
+    myProfile[0]="A";
+    myProfile[1]=false;
+    myProfile[2]=2;
+    myProfile['email'] = "ABC@naver.com"
+    console.log(myProfile)
+    let scores =[];
+
+    scores.push(10,20,30);
+    scores.pop();
+    console.log(scores);
+*/
+let scoreList = [];
+
+const inputE1 =  document.getElementById("inputScore");
+
+function addScore(){
+
+    let result = document.getElementById("result");
+
+let score = inputE1.value;
+//console.log(score);
+//console.log(score.length);
+let scoreNum = Number(score);
+//console.log(typeof(score));
+//console.log(typeof(scoreNum));
+//console.log(scoreNum);
+//console.log(isNaN(scoreNum));
+if(isNaN(scoreNum)){
+    // 입력한 성적이 숫자가 아닐경우
+   result.innerText = "숫자입력해라";
+}
+else if(score==""){
+   result.innerText = "성적입력해라";
+}
+else{
+    //입력한 성적이 숫자인 경우
+    scoreList.push(scoreNum);
+    result.innerText = "성적입력됨";
+    console.log(scoreList);
+    inputE1.value="";
+}
+inputE1.focus();
+console.log(scoreList.length)
+ 
+}
+
+function printScore(){
+    if(scoreList.length == 0){
+        result.innerText="성적 입력안됨"
+        inputE1.focus();
+    }
+    else{
+        let output="";
+        for(let i=0; i<scoreList.length; i++){
+            output+="["+scoreList[i]+"]";
+        }
+        result.innerText=output;
+    }
+}
+
+function totalScore(){
+    if(scoreList.length == 0){
+        result.innerText="성적 입력안됨"
+        inputE1.focus();
+    }
+    else{
+        let total = 0;
+        for(let i=0; i<scoreList.length; i++){
+           total+=scoreList[i];
+           console.log(total);
+        }
+        result.innerText=total;
+    }
+}
+function avgScore(){
+    if(scoreList.length == 0){
+        result.innerText="성적 입력안됨"
+        inputE1.focus();
+    }
+    else{
+        let avg = 0;
+        for(let i=0; i<scoreList.length; i++){
+           avg+=scoreList[i]/scoreList.length;
+           console.log(avg);
+        }
+        result.innerText=avg;
+    }
+}
+</script>
+</html>

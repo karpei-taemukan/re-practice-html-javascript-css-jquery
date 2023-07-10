@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            padding:5px;
+            border: 1px solid black;
+        }
+        div:hover{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body style="background-color: green">
+    <a href="http://www.google.com">google</a>
+    <button onclick="page('www.naver.com')">naver</button>
+    <button onclick="page('www.google.com')">google</button>
+    <div onclick="page('www.daum.net')">next</div>
+    <input type="text"/>
+    <button onclick="reloadBtn()">refresh</button>
+</body>
+
+<script>
+let hostVal = location.host;
+
+let searchVal = location.search;
+// url에서 ? 이후에 해당되는 부분
+
+console.log("hostVal: "+hostVal);
+console.log("searchVal: "+searchVal);
+
+console.log(searchVal.replace("?","").split("&"));
+
+function reloadBtn(){
+    location.reload();
+}
+    function page(url){
+        let newUrl = location.href;
+        console.log(newUrl);
+        location.href="https://"+url;
+    }
+
+</script>
+</html>

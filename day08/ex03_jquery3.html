@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<style>
+    div{
+        padding: 10px;
+        border: 1px solid black;
+    }
+    .bgColor{
+        background-color: brown;
+    }
+
+</style>
+</head>
+<body style="background-color: darkgreen;">
+    <h1>h1</h1>
+    <h1>h1</h1>
+    <h1>h1</h1>
+
+<button id="btn01">click 1</button>
+<button id="btn02">click 2</button>
+
+<button id="btn03">click 3</button>    
+<div>
+    <input style="background-color: darkgreen;" type="text" value="input01"/>
+</div>
+
+<div>
+    <input style="background-color: darkgreen;" type="text" value="input02"/>
+</div>
+
+</body>
+
+<script>
+    $("#btn03").click(function(){
+        alert("3 button");
+    });
+
+
+    $("input").focus(function(e){
+        console.log("focus");
+        // $(선택자).val(); -> getter
+         // $(선택자).val("값"); -> setter
+         console.log($(e.target).val());
+         $(e.target).val("focus");
+         $(e.target).parent().addClass("bgColor");
+    })
+
+    $("input").blur(function(e){
+        $(e.target).parent().removeClass("bgColor");
+    })
+</script>
+
+<script>
+let btn01=document.getElementById("btn01");
+btn01.addEventListener("click", function(){
+    alert("button01");
+    btn01.innerText="1 button";
+});
+
+document.querySelector("#btn02").addEventListener("click", function(e){
+    alert("button02");
+   // console.log(e);
+    e.target.innerText="2 button";
+});
+</script>
+
+<script>
+// class 속성 값 부여 
+$("h1").addClass("bgColor");
+//$("h1").eq(1).addClass("bgColor");
+
+// class 값 제거 
+$("h1").eq(1).removeClass("bgColor");
+
+// class 값 toggle
+
+$("h1").toggleClass("bgColor");
+
+
+</script>
+
+</html>
