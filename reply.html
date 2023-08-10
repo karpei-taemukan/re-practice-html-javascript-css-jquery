@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .reWriter{
+            color:coral;
+        }
+        .reComment{
+            color:green;
+        }
+    </style>
+</head>
+<body>
+    <h2>create Element</h2>
+    <button onclick="replyList()">댓글출력</button>
+    <!-- 댓글 출력 div -->
+    <div id="replyArea">
+     
+    </div>
+</body>
+<script>
+    function replyList(){
+        let reArea = document.getElementById("replyArea");
+
+        for(let i =0; i < 5; i++){
+
+            
+                    let reDiv = document.createElement("div");
+                    let reWriter = document.createElement("p");
+                    let reComment = document.createElement("p");
+                   // let reComment = reWriter.cloneNode("p");
+                    reWriter.classList.add("reWriter");
+                    reComment.classList.add("reComment");
+                    reWriter.innerText="작성자"+i;
+                    reComment.innerText="댓글"+i;
+            
+                    reDiv.appendChild(reWriter);
+                    
+                    reDiv.appendChild(reComment);
+            
+                    reArea.appendChild(reDiv);
+        }
+    }
+        </script>
+</html>
